@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: bfech8mky-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: bfech8mky-python 
+  name: bfech8mky-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: bfech8mky-python
+    weight: 100 
